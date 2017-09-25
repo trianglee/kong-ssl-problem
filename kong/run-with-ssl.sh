@@ -11,6 +11,12 @@ set -x
 SCRIPT_DIR=$(dirname "$0")
 pushd $SCRIPT_DIR
 
+if [ -n "$SSL_VERIFY" ] ; then
+	KONG_PG_SSL_VERIFY=$SSL_VERIFY
+else
+	KONG_PG_SSL_VERIFY=false
+fi
+
 docker run \
 	-ti \
 	--rm \
@@ -23,7 +29,7 @@ docker run \
 	-e "KONG_PROXY_ERROR_LOG=/dev/stderr" \
 	-e "KONG_ADMIN_ERROR_LOG=/dev/stderr" \
 	-e "KONG_PG_SSL=true" \
-	-e "KONG_PG_SSL_VERIFY=true" \
+	-e "KONG_PG_SSL_VERIFY=$KONG_PG_SSL_VERIFY" \
 	-e "KONG_LUA_SSL_TRUSTED_CERTIFICATE=/tmp/cert.pem" \
 	-p 8000:8000 \
 	-p 8443:8443 \
