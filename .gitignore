@@ -2,3 +2,4 @@ postgres-with-ssl/cert-wrong.pem
 postgres-with-ssl/cert.pem
 postgres-with-ssl/docker/cert.pem
 postgres-with-ssl/docker/private.pem
+kong/docker/patch.diff
