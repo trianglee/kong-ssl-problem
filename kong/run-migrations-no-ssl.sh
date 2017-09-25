@@ -3,7 +3,9 @@
 DB_CONTAINER=postgres-no-ssl
 
 IMAGE=kong
-TAG=latest
+
+# Use $TAG from outside, if provided.
+TAG=${TAG:-latest}
 
 set -e
 set -x

@@ -3,7 +3,9 @@
 DB_CONTAINER=postgres-with-ssl
 
 NAME=kong
-TAG=latest
+
+# Use $TAG from outside, if provided.
+TAG=${TAG:-latest}
 
 docker run \
 	-it \
