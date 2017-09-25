@@ -1,6 +1,7 @@
 #!/bin/bash
 
 docker run \
+	--rm \
 	--link postgres-no-ssl \
 	--link postgres-with-ssl \
 	jwilder/dockerize \
