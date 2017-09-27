@@ -20,6 +20,7 @@ SCRIPT_DIR=$(dirname "$0")
 pushd $SCRIPT_DIR
 
 docker run \
+	--name kong \
 	-ti \
 	--rm \
 	--link $DB_CONTAINER:kong-database \
