@@ -18,6 +18,7 @@ set +e
 docker rmi -f $IMAGE:$TAG
 set -e
 
-docker build ./docker \
+docker build \
 	--force-rm \
-	-t $IMAGE:$TAG
+	-t $IMAGE:$TAG \
+	./docker
