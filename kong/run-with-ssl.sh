@@ -39,6 +39,7 @@ docker run \
 	-e "KONG_PG_SSL=true" \
 	-e "KONG_PG_SSL_VERIFY=${SSL_VERIFY}" \
 	-e "KONG_LUA_SSL_TRUSTED_CERTIFICATE=/tmp/cert.pem" \
+	-e "KONG_LUA_SSL_VERIFY_DEPTH=10" \
 	-e "KONG_NGINX_WORKER_PROCESSES=1" \
 	-p 8000:8000 \
 	-p 8443:8443 \
