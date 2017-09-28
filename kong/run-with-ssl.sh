@@ -4,6 +4,9 @@ DB_CONTAINER=postgres-with-ssl
 
 IMAGE=kong
 
+set -e
+set -x
+
 # Use environment variables from outside, if provided.
 TAG=${TAG:-latest}
 PG_HOST=${PG_HOST:-kong-database}
@@ -13,8 +16,11 @@ PG_DATABASE=${PG_DATABASE:-kong}
 CERT_PEM=${CERT_PEM:-../postgres-with-ssl/cert.pem}
 SSL_VERIFY=${SSL_VERIFY:-false}
 
-set -e
-set -x
+if [ "$RUN_MIGRATIONS" = "true" ] ; then
+	CMD="kong migrations up"
+else
+	CMD="kong start -vv"
+fi
 
 SCRIPT_DIR=$(dirname "$0")
 pushd $SCRIPT_DIR
@@ -39,4 +45,4 @@ docker run \
 	-p 8001:8001 \
 	-p 8444:8444 \
 	$IMAGE:$TAG \
-	kong start -vv
+	$CMD

@@ -16,4 +16,4 @@ pushd $SCRIPT_DIR
 
 # Run Kong migrations on both databases.
 ./kong/run-migrations-no-ssl.sh
-./kong/run-migrations-with-ssl.sh
+RUN_MIGRATIONS=true ./kong/run-with-ssl.sh
