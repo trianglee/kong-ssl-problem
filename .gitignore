@@ -1,5 +1,12 @@
 postgres-with-ssl/cert-wrong.pem
 postgres-with-ssl/cert.pem
+postgres-with-ssl/cert1.pem
+postgres-with-ssl/cert2.pem
+postgres-with-ssl/cert-1-2-bundle.pem
 postgres-with-ssl/docker/cert.pem
 postgres-with-ssl/docker/private.pem
+postgres-with-ssl/docker/cert2.pem
+postgres-with-ssl/docker/cert3.pem
+postgres-with-ssl/docker/key2.pem
+postgres-with-ssl/docker/key3.pem
 kong/docker/patch.diff
